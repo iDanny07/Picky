@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nested_navigators/nested_nav_bloc.dart';
-import 'package:nested_navigators/nested_nav_bloc_provider.dart';
-import 'package:picky/nested_nav_item_key.dart';
-import 'package:picky/pages/root_page.dart';
-import 'package:picky/routes.dart';
+import 'package:picky/pages/pickyList_page.dart';
 
 class App extends StatefulWidget {
   @override
@@ -11,17 +7,88 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final NestedNavigatorsBloc _bloc = NestedNavigatorsBloc<NestedNavItemKey>();
+
+
+  String text = "Initial Text";
 
   @override
   Widget build(BuildContext context) {
-    return NestedNavigatorsBlocProvider(
-      bloc: _bloc,
-      child: MaterialApp(
-        title: 'Picky',
-        home: RootPage(),
-        onGenerateRoute: (routeSettings) => Routes.generateRoute(routeSettings),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Picky'),
+        centerTitle: true,
       ),
+      drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              DrawerHeader(
+                child: Text(
+                  'Picky Menu',
+                  style: TextStyle(
+                    fontSize: 25,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.yellow[800],
+                ),
+              ),
+              Container (
+                child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        title: Text('Login'),
+                        leading: Icon(Icons.edit),
+                        onTap:(){
+                          setState((){
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/loginPage');
+                          });
+                        }
+                      ),
+                      ListTile(
+                        title: Text('Account'),
+                        leading: Icon(Icons.person),
+                        onTap:(){
+                          setState((){
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/accountPage');
+                          });
+                        }
+                      ),ListTile(
+                        title: Text('Create Picky List'),
+                        leading: Icon(Icons.plus_one),
+                        onTap:(){
+                          setState((){
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/createPickyListPage');
+                          });
+                        }
+                      ),ListTile(
+                        title: Text('Current Picky List'),
+                        leading: Icon(Icons.list),
+                        onTap:(){
+                          setState((){
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/pickyListPage');
+                          });
+                        }
+                      ),ListTile(
+                        title: Text('History'),
+                        leading: Icon(Icons.book),
+                        onTap:(){
+                          setState((){
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/historyPage');
+                          });
+                        }
+                      ),
+                    ]
+                ),
+              )
+            ],
+          ),
+        ),
+      body: PickyListPage(),
     );
   }
 }
