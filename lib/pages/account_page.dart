@@ -9,7 +9,9 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Account",),
+        title: Text(
+          "Account",
+        ),
         centerTitle: true,
       ),
       body: Padding(
@@ -19,9 +21,9 @@ class AccountPage extends StatelessWidget {
             children: <Widget>[
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
                   child: CircleAvatar(
-                    backgroundColor: Colors.yellow[200],
+                    backgroundColor: Colors.black54,
                     radius: 100,
                   ),
                 ),
@@ -29,46 +31,53 @@ class AccountPage extends StatelessWidget {
               Text(
                 'USERNAME',
                 style: TextStyle(
-                  color: Colors.deepPurple[800],
-                  ),
+                  color: Colors.deepPurple[200],
+                  letterSpacing: 1,
+                ),
               ),
-              SizedBox(height: 50,),
-              Text(
-                'iDanny'
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                color: Colors.black54,
+                padding: EdgeInsets.fromLTRB(150, 10, 150, 10),
+                child: Text(
+                  'iDanny',
+                ),
               ),
               Divider(
                 height: 50,
                 color: Colors.white,
-                ),
+              ),
               Text(
                 'EMAIL',
                 style: TextStyle(
-                  color: Colors.deepPurple[800],
-                  ),
-              ),
-              SizedBox(height: 50,),
-              Text(
-                'idanny@gmail.com'
-              ),
-              Divider(
-                height: 50,
-                color: Colors.white,
+                  color: Colors.deepPurple[200],
+                  letterSpacing: 1,
                 ),
-              Text(
-                'EMAIL',
-                style: TextStyle(
-                  color: Colors.deepPurple[800],
-                  ),
               ),
-              SizedBox(height: 50,),
-              Text(
-                'iDanny'
+              SizedBox(
+                height: 20,
               ),
-              SizedBox(height: 20,),
-              RaisedButton.icon(
-                onPressed: () {}, 
-                icon: Icon(Icons.cancel),
-                label: Text('Logout')
+              Container(
+                  color: Colors.black54,
+                  //TODO For some reason this keeps making content smaller
+                  padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                  child: Text(
+                    'idanny@gmail.com',
+                    style: TextStyle(),
+                  )),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: RaisedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.cancel),
+                      label: Text('Logout')),
+                ),
               ),
             ],
           ),

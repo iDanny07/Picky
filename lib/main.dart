@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:picky/pages/account_page.dart';
+import 'package:picky/pages/locationFinder_page.dart';
 import 'package:picky/pages/login_page.dart';
 import 'package:picky/pages/createPickyList_page.dart';
 import 'package:picky/pages/history_page.dart';
 import 'package:picky/pages/pickyList_page.dart';
-
 
 import 'app.dart';
 
@@ -20,6 +20,11 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.deepPurple[800],
         accentColor: Colors.yellow[800],
         buttonColor: Colors.deepPurple[700],
+        textTheme: TextTheme(
+          title: TextStyle(
+            fontSize: 50.0,
+          ),
+        ),
       ),
       home: App(),
       routes: {
@@ -27,7 +32,8 @@ class MyApp extends StatelessWidget {
         '/loginPage': (context) => LoginPage(),
         '/createPickyListPage': (context) => CreatePickyListPage(),
         '/historyPage': (context) => HistoryPage(),
-        '/pickyListPage': (context) => PickyListPage(),
+        '/pickyListPage': (context) => PickyListPage(false),
+        '/locationFinder': (context) => LocationFinder(),
       },
     );
   }
